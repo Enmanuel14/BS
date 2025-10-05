@@ -6,7 +6,7 @@
   <title>Bright Staffing - About Us</title>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+  
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
@@ -110,6 +110,14 @@
     header h1 a {
         color: var(--text-color);
         text-decoration: none;
+    }
+    
+    /* Estilo para el logo */
+    header nav img {
+        margin: 0 40px;
+        flex-shrink: 0;
+        /* Aseguramos que el logo mantenga su tamaño en el header */
+        max-height: 55px; 
     }
 
     nav ul {
@@ -222,7 +230,7 @@
     .about-image img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: cover; /* MANTENEMOS COVER EN ESCRITORIO para un look full-bleed */
         display: block;
     }
     
@@ -232,6 +240,7 @@
         justify-content: space-around; 
         gap: 40px; 
         margin-top: 30px;
+        text-align: center; 
     }
     .argument-icon {
         color: var(--red-primary); 
@@ -357,7 +366,7 @@
             flex-direction: column;
         }
         .about-text, .about-image {
-            flex: 0 0 100%; /* Ambas secciones al 100% de ancho */
+            flex: 0 0 100%; 
             width: 100%;
             padding-right: 0;
             text-align: center;
@@ -365,8 +374,20 @@
         .about-text h2 {
             text-align: center;
         }
+        
+        /* SOLUCIÓN FINAL AL PROBLEMA DE RECORTE EN MÓVIL (iPhone) */
         .about-image {
-            height: 300px;
+            height: auto;      /* Elimina la altura fija del contenedor */
+            max-height: none;  /* CRÍTICO: Elimina el límite de altura */
+            padding: 20px 0;   /* Mantiene el espaciado vertical */
+        }
+        
+        .about-image img {
+            width: 90%;        /* Ajusta el ancho de la imagen para que no toque los bordes */
+            height: auto;      /* La imagen determina su propia altura */
+            object-fit: contain; /* Asegura que la imagen se vea completa */
+            margin: 0 auto;    /* Centra la imagen horizontalmente */
+            display: block;    /* Asegura que margin auto funcione */
         }
         
         /* Ajuste para el Footer Móvil */
@@ -392,70 +413,71 @@
 
   <div id="main-content">
 
-      <header id="main-header-anchor">
-        <div class="container">
+    <header id="main-header-anchor">
+      <div class="container">
+        
+        <nav id="main-nav">
+          <img src="./logotipo.png" alt="Logo" srcset="" width="auto" height="55px">
+          <ul>
+            <li><a href="index.html">Home</a></li> 
+            <li><a href="services.html">Services</a></li> 
+            <li><a href="about.html" class="active-page">About Us</a></li> 
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false"></button>
+      </div>
+    </header>
+    
+    <section id="about-us" class="section-padding">
+      <div class="container">
+        <div class="about-content-grid">
           
-          <nav id="main-nav">
-            <img src="./logotipo.png" alt="Logo" srcset="" width="auto" height="55px">
-            <ul>
-              <li><a href="index.html">Home</a></li> 
-              <li><a href="services.html">Services</a></li> 
-              <li><a href="about.html" class="active-page">About Us</a></li> <li><a href="pricing.html">Pricing</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
-          
-          <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false"></button>
-        </div>
-      </header>
-      
-      <section id="about-us" class="section-padding">
-        <div class="container">
-            <div class="about-content-grid">
-                
-                
-                
-                <div class="about-image" data-aos="fade-left">
-                    <img src="./imag1.jpeg" alt="Equipo de Bright Staffing"> 
-                </div>
+          <div class="about-image" data-aos="fade-right">
+            <img src="./imag1.jpeg" alt="Equipo de Bright Staffing"> 
+          </div>
 
-                <div class="about-text" data-aos="fade-right">
-                    <h2>About Bright Staffing</h2>
-                    <p style="font-size: 1.2em; font-weight: 500; margin-bottom: 25px;">
-                        Our mission is simple: to connect ambitious companies with the **specialized talent** they need to thrive. 
-                    </p>
-                    <p>
-                        Founded in Miami, Florida, Bright Staffing specializes in placing high-performing professionals in critical sectors such as **legal, medical, and corporate support**. We understand that talent is the foundation of success, which is why our selection process is rigorous and **stress-free** for you, ensuring that only the most qualified candidates reach your team.
-                    </p>
-                    <p style="margin-top: 15px;">
-                        We pride ourselves on offering staffing solutions that go beyond simple recruitment, providing **strategic support** that integrates seamlessly with your growth objectives. We work with you to find not just an employee, but a valuable, long-term member of your team.
-                    </p>
-                    <a href="contact.html" class="btn-message" style="background: white; color: var(--red-primary); border-color: white;">Let's Talk About Your Team!</a>
+          <div class="about-text" data-aos="fade-left">
+            <h2>About Bright Staffing</h2>
+            <p style="font-size: 1.2em; font-weight: 500; margin-bottom: 25px;">
+              Our mission is simple: to connect ambitious companies with the **specialized talent** they need to thrive. 
+            </p>
+            <p>
+              Founded in Miami, Florida, Bright Staffing specializes in placing high-performing professionals in critical sectors such as **legal, medical, and corporate support**. We understand that talent is the foundation of success, which is why our selection process is rigorous and **stress-free** for you, ensuring that only the most qualified candidates reach your team.
+            </p>
+            <p style="margin-top: 15px;">
+              We pride ourselves on offering staffing solutions that go beyond simple recruitment, providing **strategic support** that integrates seamlessly with your growth objectives. We work with you to find not just an employee, but a valuable, long-term member of your team.
+            </p>
+            <a href="contact.html" class="btn-message" style="background: white; color: var(--red-primary); border-color: white;">Let's Talk About Your Team!</a>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="mission-vision" class="section-padding" style="background-color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 data-aos="fade-up" style="margin-bottom: 20px;">Our Vision and Values</h2>
+            <div class="arguments-grid">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-bullseye argument-icon"></i>
+                    <h3 style="color: var(--red-secondary); margin-top: 10px;">Focus on Results</h3>
+                    <p style="color: #666;">We measure ourselves by the success and longevity of our placements.</p>
                 </div>
-                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-gem argument-icon"></i>
+                    <h3 style="color: var(--red-secondary); margin-top: 10px;">Absolute Integrity</h3>
+                    <p style="color: #666;">Transparency and honesty in every interaction with clients and candidates.</p>
+                </div>
             </div>
         </div>
-      </section>
-
-      <section id="mission-vision" class="section-padding" style="background-color: white;">
-          <div class="container" style="text-align: center;">
-              <h2 data-aos="fade-up" style="margin-bottom: 20px;">Our Vision and Values</h2>
-              <div class="arguments-grid">
-                  <div data-aos="fade-up" data-aos-delay="100">
-                      <i class="fas fa-bullseye argument-icon"></i>
-                      <h3 style="color: var(--red-secondary); margin-top: 10px;">Focus on Results</h3>
-                      <p style="color: #666;">We measure ourselves by the success and longevity of our placements.</p>
-                  </div>
-                  <div data-aos="fade-up" data-aos-delay="200">
-                      <i class="fas fa-gem argument-icon"></i>
-                      <h3 style="color: var(--red-secondary); margin-top: 10px;">Absolute Integrity</h3>
-                      <p style="color: #666;">Transparency and honesty in every interaction with clients and candidates.</p>
-                  </div>
-              </div>
-          </div>
-      </section>
-      
-  </div> <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="back-to-top" title="Go to top">
+    </section>
+    
+  </div> 
+  
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="back-to-top" title="Go to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
