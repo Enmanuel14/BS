@@ -404,8 +404,91 @@
         .arguments-grid {
             flex-direction: column;
             gap: 20px;
+     
+     
         }
     }
+
+
+
+
+       /**/
+
+    /* ---------------------------------------------------- */
+/* 2. Estilos del Lightbox (CENTRADO y ADAPTABLE)       */
+/* ---------------------------------------------------- */
+
+/* 2.1. Overlay (Fondo oscuro, cubre toda la pantalla) */
+.lightbox-overlay {
+    display: none; /* Inicialmente oculto */
+    
+    /* ESTO ES LO CRUCIAL: Posicionamiento fijo respecto a la ventana */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fondo semi-transparente y z-index alto (para estar encima de todo) */
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    
+    /* CENTRADO PERFECTO con Flexbox */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+}
+
+/* 2.2. Contenido (La caja que contiene el QR) */
+.lightbox-content {
+    background-color: rgba(255, 255, 255, 0.947);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative; 
+    
+    /* Dimensiones Adaptables */
+    max-width: 420px; /* Máximo en escritorio */
+    width: 70%;       /* Ocupa el 90% en móviles */
+}
+
+/* 2.3. Imagen del QR (Se adapta al contenedor) */
+.qr-image {
+    max-width: 80%; 
+    height: auto;
+    margin: 20px 0;
+    
+    border-radius: 5px;
+}
+/* ... otros estilos (close-btn, media queries) ... */
+
+/* ---------------------------------------------------- */
+/* 2.5. Estilos para la Imagen de Encabezado (Logo)     */
+/* ---------------------------------------------------- */
+.header-image {
+    /* Asegura que la imagen no exceda el ancho de su contenedor */
+    max-width: 80%; 
+    height: auto;
+    /* Espaciado */
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* 3. Media Query para Móviles (Ajustes finos)          */
+/* ---------------------------------------------------- */
+@media (max-width: 500px) {
+    /* Mantiene la adaptabilidad de la imagen en móvil */
+    .header-image {
+        max-width: 90%; 
+    }
+}
+
+
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -481,6 +564,24 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
+  <div id="lightbox" class="lightbox-overlay" onclick="closeLightboxOutside(event)">
+    <div class="lightbox-content">
+       <!-- <span class="close-btn" onclick="closeLightbox()">&times;</span>-->
+        
+        <img src="./logotipo.png" alt="Scan to Chat Header" class="header-image" width="160px">
+        
+        <p class="subtitle-en">We'll respond in minutes!</p>
+        
+        <img src="./WhatsApp Image 2025-10-06 at 8.19.50 AM.jpeg" alt="WhatsApp QR Code" class="qr-image">
+        
+        <p class="suggestion-en">Open your phone's camera and scan this code.</p>
+    </div>
+</div>
+
+
+
+  
+
   <footer>
     <div class="container">
       <div class="footer-section footer-contact" data-aos="fade-up" data-aos-delay="100">
@@ -495,9 +596,10 @@
       <div class="footer-section" data-aos="fade-up" data-aos-delay="500">
         <h3>Follow Us</h3>
         <div class="social-icons">
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/bright-staffing-team-127856387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/19UrehcHyG/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" aria-label="WhatsApp" id="openQr" onclick="openLightbox()"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/bright_staffing_team?igsh=dnRoZjI3bmtkbzRu&utm_source=qr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
         <p style="margin-top: 15px;">Bright Staffing | World-Class Talent</p>
       </div>
@@ -558,6 +660,36 @@
             backToTopButton.style.display = 'none';
         }
     });
+
+
+
+
+    /**/
+    
+    const lightbox = document.getElementById('lightbox');
+
+    // Función para abrir el lightbox
+    function openLightbox() {
+        // Usa 'flex' para mostrar el Lightbox y activar el centrado CSS
+        lightbox.style.display = 'flex'; 
+    }
+
+    // Función para cerrar el lightbox
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+    }
+
+    // Cierra al hacer clic en el fondo oscuro
+    function closeLightboxOutside(event) {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    }
+
+
+
+
+
 
   </script>
 </body>
