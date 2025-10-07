@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright Staffing - Pricing</title>
+    <title>Bright Staffing Team - Pricing</title>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -457,81 +457,6 @@
                 margin-bottom: 30px;
             }
         }
-
-
-
-
-        /* 2.1. Overlay (Fondo oscuro, cubre toda la pantalla) */
-.lightbox-overlay {
-    display: none; /* Inicialmente oculto */
-    
-    /* ESTO ES LO CRUCIAL: Posicionamiento fijo respecto a la ventana */
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* Fondo semi-transparente y z-index alto (para estar encima de todo) */
-    background-color: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
-    
-    /* CENTRADO PERFECTO con Flexbox */
-    justify-content: center; /* Centrado horizontal */
-    align-items: center;     /* Centrado vertical */
-}
-
-/* 2.2. Contenido (La caja que contiene el QR) */
-.lightbox-content {
-    background-color: rgba(255, 255, 255, 0.947);
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    position: relative; 
-    
-    /* Dimensiones Adaptables */
-    max-width: 420px; /* Máximo en escritorio */
-    width: 70%;       /* Ocupa el 90% en móviles */
-}
-
-/* 2.3. Imagen del QR (Se adapta al contenedor) */
-.qr-image {
-    max-width: 80%; 
-    height: auto;
-    margin: 20px 0;
-    
-    border-radius: 5px;
-}
-/* ... otros estilos (close-btn, media queries) ... */
-
-/* ---------------------------------------------------- */
-/* 2.5. Estilos para la Imagen de Encabezado (Logo)     */
-/* ---------------------------------------------------- */
-.header-image {
-    /* Asegura que la imagen no exceda el ancho de su contenedor */
-    max-width: 80%; 
-    height: auto;
-    /* Espaciado */
-    margin-bottom: 10px;
-}
-
-/* ---------------------------------------------------- */
-/* 3. Media Query para Móviles (Ajustes finos)          */
-/* ---------------------------------------------------- */
-@media (max-width: 500px) {
-    /* Mantiene la adaptabilidad de la imagen en móvil */
-    .header-image {
-        max-width: 90%; 
-    }
-}
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -662,19 +587,7 @@
 
 
 
-    <div id="lightbox" class="lightbox-overlay" onclick="closeLightboxOutside(event)">
-        <div class="lightbox-content">
-           <!-- <span class="close-btn" onclick="closeLightbox()">&times;</span>-->
-            
-            
-            
-            <p class="subtitle-en">We'll respond in minutes!</p>
-            
-            <img src="./qr.png" alt="WhatsApp QR Code" class="qr-image">
-            
-            <p class="suggestion-en">Open your phone's camera and scan this code.</p>
-        </div>
-    </div>
+    
 
     <footer>
         <div class="container">
@@ -692,14 +605,14 @@
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/bright-staffing-team-127856387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.facebook.com/share/19UrehcHyG/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
-                    <a href="#" aria-label="WhatsApp" id="openQr" onclick="openLightbox()"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/message/HJ736RGYKRJ3H1" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.instagram.com/bright_staffing_team?igsh=dnRoZjI3bmtkbzRu&utm_source=qr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
-                <p style="margin-top: 15px;">Bright Staffing | World-Class Talent</p>
+                <p style="margin-top: 15px;">Bright Staffing Team | World-Class Talent</p>
             </div>
         </div>
         <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
-            <p>&copy; 2025 Bright Staffing. All rights reserved.</p>
+            <p>&copy; 2025 Bright Staffing Team. All rights reserved.</p>
         </div>
     </footer>
 
